@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Threez Media | Official Digital Entertainment Hub</title>
+    <meta name="description" content="Official website of The Threez Media. Original digital comedy, spoken word, short films, and social satire.">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="The Threez Media">
+    <meta property="og:description" content="Digital Comedy, Spoken Word & Original Storytelling.">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS Styles -->
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-color: #38bdf8;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        header {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #334155;
+            background-color: rgba(15, 23, 42, 0.9);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .cta-btn {
+            background-color: var(--accent-color);
+            color: #0f172a;
+            padding: 12px 28px;
+            font-weight: 700;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            margin-bottom: 80px;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 12px;
+        }
+
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid #334155;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+            color: var(--accent-color);
+        }
+
+        /* Video Section */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid #334155;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            color: var(--accent-color);
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            nav { display: none; } /* Simplified mobile header */
+        }
+    </style>
+
+    <!-- Schema.org JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EntertainmentBusiness",
+      "name": "The Threez Media",
+      "url": "https://thethreezmedia.github.io",
+      "foundingDate": "2017",
+      "founders": [
+        {
+          "@type": "Person",
+          "name": "Marcknol Mwanza",
+          "alternateName": "Marck Deey Beiz"
+        },
+        {
+          "@type": "Person",
+          "name": "Bramuel Juma"
+        },
+        {
+          "@type": "Person",
+          "name": "John Mbembe"
+        }
+      ],
+      "sameAs": [
+        "https://www.wikidata.org/wiki/YOUR_WIKIDATA_ID",
+        "https://www.facebook.com/p/Threez-Media-100077550680120/"
+      ]
+    }
+    </script>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">The Threez Media</a>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#featured">Featured Work</a>
+            <a href="#team">Team</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Original Comedy, Spoken Word & Digital Media</h1>
+            <p>Creating authentic entertainment, social satire, and creative storytelling from Nairobi, Kenya.</p>
+            <a href="#featured" class="cta-btn">Watch Latest Work</a>
+        </section>
+
+        <div class="container">
+            <!-- About Section -->
+            <section id="about">
+                <h2>About The Threez Media</h2>
+                <div class="card">
+                    <p>Established in 2017, <strong>The Threez Media</strong> is an independent digital entertainment label focused on producing original comedy skits, spoken word poetry, and creative viral content. We bring fresh storytelling and character-driven satire to audiences across digital platforms.</p>
+                </div>
+            </section>
+
+            <!-- Featured Content Section -->
+            <section id="featured">
+                <h2>Featured Content</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Latest Comedy Skit</h3>
+                        <p>Check out our latest release on YouTube.</p>
+                        <div class="video-container">
+                            <!-- Replace VIDEO_ID with your YouTube video ID -->
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>Spoken Word Showcase</h3>
+                        <p>Explore our recent spoken word performances.</p>
+                        <div class="video-container">
+                            <!-- Replace VIDEO_ID with your YouTube video ID -->
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Team Section -->
+            <section id="team">
+                <h2>Founders & Key Characters</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Marcknol Mwanza</h3>
+                        <p style="color: var(--accent-color);">Co-Founder & CEO</p>
+                        <p>Stage Name: <em>Marck Deey Beiz</em></p>
+                        <p>Characters: Mack Dembele, Leonard Makhulo, Mr Deey</p>
+                    </div>
+                    <div class="card">
+                        <h3>Bramuel Juma</h3>
+                        <p style="color: var(--accent-color);">Co-Founder</p>
+                        <p>Creative Director & Lead Contributor</p>
+                    </div>
+                    <div class="card">
+                        <h3>John Mbembe</h3>
+                        <p style="color: var(--accent-color);">Co-Founder</p>
+                        <p>Creative Producer & Director</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact">
+                <h2>Bookings & Partnerships</h2>
+                <div class="card">
+                    <p>Interested in sponsorships, brand deals, or video production services?</p>
+                    <br>
+                    <a href="mailto:contact@thethreezmedia.com" class="cta-btn">Email Us</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 The Threez Media. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com/p/Threez-Media-100077550680120/" target="_blank">Facebook</a>
+            <a href="#" target="_blank">YouTube</a>
+            <a href="#" target="_blank">TikTok</a>
+        </div>
+    </footer>
+
+</body>
+  </html>
+  
