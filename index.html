@@ -1,4 +1,4 @@
-<!DOCTYPE<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -105,6 +105,16 @@
       <section class="media-section">
         <div class="media-grid">
 
+          <!-- Street Smart Hustle Card -->
+          <div class="media-card" data-category="comedy">
+            <div>
+              <div class="card-tag">Comedy Skit</div>
+              <div class="card-title">Street Smart Hustle</div>
+              <div class="card-desc">A satirical take on mobile trends, online culture, and social media dynamics.</div>
+            </div>
+            <a href="https://youtube.com" target="_blank" class="card-action">Watch Video →</a>
+          </div>
+
           <!-- Label History Card -->
           <div class="media-card" data-category="history" style="opacity: 1 !important; transform: none !important; animation: none !important;">
             <div>
@@ -141,124 +151,7 @@
 
 </body>
 </html>
- 0, Math.PI * 2);
-        ctx.fillStyle = this.color;
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = this.color;
-        ctx.fill();
-        ctx.restore();
-      }
-
-      update() {
-        this.velocity.y += 0.04; // gravity effect
-        this.x += this.velocity.x;
-        this.y += this.velocity.y;
-        this.alpha -= this.decay;
-      }
-    }
-
-    let particles = [];
-    const colors = ['#ff4500', '#ff0055', '#00e5ff', '#ffeb3b', '#76ff03', '#ffffff'];
-
-    function createFirework(x, y) {
-      const particleCount = 40;
-      const color = colors[Math.floor(Math.random() * colors.length)];
-      for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle(x, y, color));
-      }
-    }
-
-    function animate() {
-      requestAnimationFrame(animate);
-      ctx.fillStyle = 'rgba(10, 10, 12, 0.2)'; // trailing fade effect
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      // Random automatic bursts
-      if (Math.random() < 0.04) {
-        createFirework(
-          Math.random() * canvas.width,
-          Math.random() * (canvas.height * 0.6)
-        );
-      }
-
-      particles.forEach((particle, index) => {
-        if (particle.alpha > 0) {
-          particle.update();
-          particle.draw();
-        } else {
-          particles.splice(index, 1);
-        }
-      });
-    }
-
-    animate();
-  </script>
-</body>
-</html>
-lture entertainment.</p>
-    </section>
-
-    <!-- Media Showcase Section -->
-    <main class="container" id="content">
-        <div class="section-header">
-            <h2 class="section-title">Media Showcase</h2>
-        </div>
-
-        <!-- Category Filters -->
-        <div class="filter-bar">
-            <button class="filter-btn active" onclick="filterContent('all', event)">All Drops</button>
-            <button class="filter-btn" onclick="filterContent('comedy', event)">Comedy Skits</button>
-            <button class="filter-btn" onclick="filterContent('spoken-word', event)">Spoken Word</button>
-            <button class="filter-btn" onclick="filterContent('satire', event)">Social Satire</button>
-        </div>
-
-        <!-- Content Grid -->
-        <div class="content-grid" id="media-grid">
-            <div class="media-card" data-category="comedy">
-                <div>
-                    <div class="card-tag">Comedy Skit</div>
-                    <div class="card-title">Street Smart Hustle</div>
-                    <div class="card-desc">Everyday urban satire exploring city life, quick thinking, and streetwise humor.</div>
-                </div>
-                <a href="https://youtube.com" target="_blank" class="card-action">Watch Video →</a>
-            </div>
-
-            <div class="media-card" data-category="spoken-word">
-                <div>
-                    <div class="card-tag">Spoken Word</div>
-                    <div class="card-title">Nairobi Rhythms</div>
-                    <div class="card-desc">An expressive poetic reflection on ambition, youth dreams, and urban culture.</div>
-                </div>
-                <a href="https://youtube.com" target="_blank" class="card-action">Listen Track →</a>
-            </div>
-
-            <div class="media-card" data-category="satire">
-                <div>
-                    <div class="card-tag">Social Satire</div>
-                    <div class="card-title">The Digital Wave</div>
-                    <div class="card-desc">A satirical take on mobile trends, online culture, and social media dynamics.</div>
-                </div>
-                <a href="https://youtube.com" target="_blank" class="card-action">Watch Video →</a>
-                                        if (category ===<div class="media-card" data-category="history" style="opacity: 1 !important; transform: none !important; animation: none !important;">
-              <div>
-                <div class="card-tag">Label History &amp; Background</div>
-                <div class="card-title">Our Journey Since 2017</div>
-
-                <!-- Solo Founder Portrait -->
-                <div style="width: 100%; min-height: 250px; background: #111; border-radius: 8px; overflow: hidden; margin-bottom: 6px;">
-                  <img src="file_00000000f25071f4a9d8dd3466526415.png" alt="Marcknol Mwanza - CEO &amp; Founder" style="width: 100%; height: auto; display: block; border-radius: 8px; object-fit: cover;">
-                </div>
-                <div style="font-size: 0.75rem; opacity: 0.7; margin-bottom: 16px; text-align: center;">Marcknol Mwanza — CEO &amp; Founder</div>
-
-                <!-- 2017 Founders Photo -->
-                <div style="width: 100%; min-height: 200px; background: #111; border-radius: 8px; overflow: hidden; margin-bottom: 6px;">
-                  <img src="1703500908270.jpg" alt="Threez Media Founders 2017" style="width: 100%; height: auto; display: block; border-radius: 8px; object-fit: cover;">
-                </div>
-                <div style="font-size: 0.75rem; opacity: 0.7; margin-bottom: 12px; text-align: center;">Left to Right: CEO Marcknol Mwanza, John Mbembe, &amp; Bramuel Juma (Mumias Studios, 2017)</div>
-
-                <div class="card-desc">Established in 2017 under the leadership of CEO &amp; Founder Marcknol Mwanza, alongside original co-founders Bramuel Juma and John Mbembe, The Threez Media is a Nairobi-based digital media label dedicated to digital comedy, creative storytelling, spoken word, and social media satire.</div>
-              </div>
-              <a href="#about" class="card-action">Learn More →</a>
+ion">Learn More →</a>
             </div>
 
                 <a href="#about" class="card-action">Learn More →</a>
