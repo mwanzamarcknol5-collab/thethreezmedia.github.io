@@ -25,6 +25,7 @@
       background-color: var(--bg-dark);
       color: var(--text-primary);
       line-height: 1.5;
+      padding-bottom: 80px;
     }
 
     .container {
@@ -148,6 +149,31 @@
       text-decoration: underline;
     }
 
+    /* Floating WhatsApp Action Button */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background-color: #25d366;
+      color: #ffffff;
+      padding: 12px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      z-index: 1000;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.05);
+      background-color: #20ba5a;
+    }
+
     footer {
       background: #091014;
       padding: 24px 0;
@@ -172,11 +198,11 @@
       <!-- Section Title & Interactive Category Filter Bar -->
       <h2 class="section-title" style="margin-top: 24px;">Media Showcase</h2>
       <div class="filter-bar">
-        <button class="filter-btn active" onclick="filterCategory('all')">All Drops</button>
-        <button class="filter-btn" onclick="filterCategory('comedy')">Comedy Skits</button>
-        <button class="filter-btn" onclick="filterCategory('spoken')">Spoken Word</button>
-        <button class="filter-btn" onclick="filterCategory('satire')">Social Satire</button>
-        <button class="filter-btn" onclick="filterCategory('history')">Label History</button>
+        <button class="filter-btn active" onclick="filterCategory('all', event)">All Drops</button>
+        <button class="filter-btn" onclick="filterCategory('comedy', event)">Comedy Skits</button>
+        <button class="filter-btn" onclick="filterCategory('spoken', event)">Spoken Word</button>
+        <button class="filter-btn" onclick="filterCategory('satire', event)">Social Satire</button>
+        <button class="filter-btn" onclick="filterCategory('history', event)">Label History</button>
       </div>
 
       <div class="media-grid">
@@ -199,7 +225,7 @@
 
             <!-- Solo Founder Portrait -->
             <div style="width: 100%; min-height: 250px; background: #000; border-radius: 8px; overflow: hidden; margin-bottom: 6px;">
-              <img src="file_00000000f25071f4a9d8dd3466526415.png" alt="Marcknol Mwanza - CEO &amp; Founder" style="width: 100%; height: auto; display: block; border-radius: 8px; object-fit: cover;">
+              <img src="file_00000000f25071f4a9d8dd3466526415.png" alt="Marcknol Mwanza - CEO &amp; Founder" style="width: 100%; height: auto; display: block; border-radius: 8px; object-fit: cover;" onerror="this.onerror=null; this.src='file_00000000f25071f4a9d8dd3466526415.jpg';">
             </div>
             <div style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 16px; text-align: center;">Marcknol Mwanza — CEO &amp; Founder</div>
 
@@ -218,6 +244,11 @@
     </div>
   </main>
 
+  <!-- Floating WhatsApp Contact Button linked to +254 706 434 282 -->
+  <a href="https://wa.me/254706434282?text=Hello%20The%20Threez%20Media%2C%20I'm%20reaching%20out%20from%20your%20website!" target="_blank" class="whatsapp-btn">
+    💬 WhatsApp Us
+  </a>
+
   <footer>
     <div class="container">
       <p>&copy; 2026 The Threez Media. All rights reserved.</p>
@@ -225,12 +256,12 @@
   </footer>
 
   <script>
-    function filterCategory(category) {
+    function filterCategory(category, evt) {
       const cards = document.querySelectorAll('.media-card');
       const buttons = document.querySelectorAll('.filter-btn');
 
       buttons.forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
+      if(evt && evt.target) evt.target.classList.add('active');
 
       cards.forEach(card => {
         if (category === 'all' || card.getAttribute('data-category') === category) {
