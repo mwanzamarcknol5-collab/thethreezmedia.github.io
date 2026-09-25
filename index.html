@@ -1,385 +1,147 @@
-<!DOCTYPE html>
+<!DOCTYPE<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Threez Media | Official Website</title>
+  <title>The Threez Media</title>
   <style>
-    :root {
-      --bg-dark: #0a0a0c;
-      --card-bg: rgba(18, 18, 22, 0.85);
-      --accent: #ff4500;
-      --text-main: #f0f0f5;
-      --text-muted: #a0a0b0;
-    }
-
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     }
-
     body {
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      min-height: 100vh;
-      overflow-x: hidden;
-      position: relative;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #050505;
+      color: #ffffff;
+      line-height: 1.5;
     }
-
-    /* Fireworks Canvas Background */
-    #fireworksCanvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    /* Main Container */
-    .app-container {
-      position: relative;
-      z-index: 1;
-      max-width: 800px;
+    .container {
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 20px 16px 100px 16px;
+      padding: 0 16px;
     }
-
-    /* Header */
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 0 30px 0;
+      padding: 24px 0;
+      border-bottom: 1px solid #222;
+      margin-bottom: 32px;
     }
-
-    .brand-title {
-      font-size: 1.4rem;
-      font-weight: 900;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      line-height: 1.1;
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
     }
-
-    nav {
-      display: flex;
-      gap: 15px;
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
     }
-
-    nav a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-
-    nav a:hover {
-      color: var(--text-main);
-    }
-
-    /* Section Headers */
-    .section-title {
-      font-size: 1.6rem;
-      font-weight: 800;
-      margin: 25px 0 15px 0;
-    }
-
-    /* Category Filter Bar */
-    .filter-bar {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding-bottom: 15px;
-      scrollbar-width: none;
-    }
-
-    .filter-bar::-webkit-scrollbar {
-      display: none;
-    }
-
-    .filter-btn {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: var(--text-muted);
-      padding: 10px 18px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      white-space: nowrap;
-      cursor: pointer;
-      backdrop-filter: blur(5px);
-      transition: all 0.25s ease;
-    }
-
-    .filter-btn.active, .filter-btn:hover {
-      background: #ffffff;
-      color: #000000;
-      border-color: #ffffff;
-    }
-
-    /* Content Cards */
-    .showcase-grid {
+    .media-card {
+      background: #111111;
+      border: 1px solid #222222;
+      border-radius: 12px;
+      padding: 20px;
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      justify-content: space-between;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      opacity: 1 !important;
+      transform: none !important;
+      animation: none !important;
     }
-
-    .showcase-card {
-      background: var(--card-bg);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
-      padding: 24px;
-      backdrop-filter: blur(10px);
-      transition: transform 0.2s, border-color 0.2s;
+    .media-card:hover {
+      border-color: #444444;
     }
-
-    .showcase-card:hover {
-      border-color: rgba(255, 255, 255, 0.2);
-    }
-
     .card-tag {
       font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--accent);
-      letter-spacing: 1px;
       text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #888888;
+      margin-bottom: 8px;
     }
-
-    .showcase-card h3 {
-      font-size: 1.3rem;
-      margin: 8px 0;
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #ffffff;
     }
-
-    .showcase-card p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.5;
-      margin-bottom: 15px;
-    }
-
-    .card-link {
-      color: var(--text-main);
-      text-decoration: none;
-      font-weight: 700;
+    .card-desc {
       font-size: 0.9rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
+      color: #cccccc;
+      margin-bottom: 16px;
+      line-height: 1.6;
     }
-
-    .card-link:hover {
+    .card-action {
+      display: inline-block;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+    .card-action:hover {
       text-decoration: underline;
     }
-
-    /* News / Buzz Section */
-    .news-card {
-      background: var(--card-bg);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
-      padding: 18px 20px;
-      backdrop-filter: blur(10px);
-      margin-top: 10px;
-    }
-
-    .news-date {
-      font-size: 0.75rem;
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    .news-card h4 {
-      margin-top: 4px;
-      font-size: 1rem;
-      color: var(--text-main);
-    }
-
-    /* Floating Action Buttons */
-    .floating-btns {
-      position: fixed;
-      bottom: 20px;
-      left: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      z-index: 10;
-    }
-
-    .float-btn {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 16px;
-      border-radius: 20px;
-      text-decoration: none;
+    footer {
+      padding: 32px 0;
+      border-top: 1px solid #222;
+      text-align: center;
       font-size: 0.85rem;
-      font-weight: 700;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-    }
-
-    .btn-whatsapp {
-      background: #25d366;
-      color: #ffffff;
-    }
-
-    .btn-fanchat {
-      background: #222226;
-      color: #ffffff;
-      border: 1px solid rgba(255,255,255,0.15);
-    }
-
-    /* Watermark Branding */
-    .watermark-glow {
-      position: fixed;
-      bottom: 15px;
-      right: 15px;
-      font-weight: 900;
-      font-size: 0.8rem;
-      letter-spacing: 2px;
-      color: #ff4500;
-      text-shadow: 0 0 10px rgba(255, 69, 0, 0.8);
-      pointer-events: none;
-      z-index: 10;
+      color: #666666;
     }
   </style>
 </head>
 <body>
 
-  <!-- Background Fireworks Canvas -->
-  <canvas id="fireworksCanvas"></canvas>
+  <header>
+    <div class="container">
+      <h1>The Threez Media</h1>
+    </div>
+  </header>
 
-  <div class="app-container">
-    <header>
-      <div class="brand-title">THE THREEZ<br>MEDIA</div>
-      <nav>
-        <a href="#showcase">Content</a>
-        <a href="#buzz">Buzz Feed</a>
-        <a href="#showcase" onclick="filterCategory('history')">About</a>
-      </nav>
-    </header>
+  <main>
+    <div class="container">
+      <section class="media-section">
+        <div class="media-grid">
 
-    <main>
-      <h2 class="section-title" id="showcase">Media Showcase</h2>
+          <!-- Label History Card -->
+          <div class="media-card" data-category="history" style="opacity: 1 !important; transform: none !important; animation: none !important;">
+            <div>
+              <div class="card-tag">Label History &amp; Background</div>
+              <div class="card-title">Our Journey Since 2017</div>
 
-      <!-- Navigation / Options Bar -->
-      <div class="filter-bar">
-        <button class="filter-btn active" onclick="filterCategory('all', this)">All Drops</button>
-        <button class="filter-btn" onclick="filterCategory('comedy', this)">Comedy Skits</button>
-        <button class="filter-btn" onclick="filterCategory('spoken-word', this)">Spoken Word</button>
-        <button class="filter-btn" onclick="filterCategory('satire', this)">Social Satire</button>
-        <button class="filter-btn" onclick="filterCategory('history', this)">Label History</button>
-      </div>
+              <!-- Solo Founder Portrait -->
+              <div style="width: 100%; min-height: 250px; background: #111; border-radius: 8px; overflow: hidden; margin-bottom: 6px;">
+                <img src="file_00000000f25071f4a9d8dd3466526415.png" alt="Marcknol Mwanza - CEO &amp; Founder" style="width: 100%; height: auto; display: block; border-radius: 8px; object-fit: cover;">
+              </div>
+              <div style="font-size: 0.75rem; opacity: 0.7; margin-bottom: 16px; text-align: center;">Marcknol Mwanza — CEO &amp; Founder</div>
 
-      <!-- Showcase Grid -->
-      <div class="showcase-grid">
-        
-        <!-- Social Satire Card -->
-        <div class="showcase-card" data-category="satire">
-          <span class="card-tag">Social Satire</span>
-          <h3>The Digital Wave</h3>
-          <p>A satirical take on mobile trends, online culture, and social media dynamics.</p>
-          <a href="#" class="card-link">Watch Video &rarr;</a>
+              <!-- 2017 Founders Photo -->
+              <div style="width: 100%; min-height: 200px; background: #111; border-radius: 8px; overflow: hidden; margin-bottom: 6px;">
+                <img src="1703500908270.jpg" alt="Threez Media Founders 2017" style="width: 100%; height: auto; display: block; border-radius: 8px; object-fit: cover;">
+              </div>
+              <div style="font-size: 0.75rem; opacity: 0.7; margin-bottom: 12px; text-align: center;">Left to Right: CEO Marcknol Mwanza, John Mbembe, &amp; Bramuel Juma (Mumias Studios, 2017)</div>
+
+              <div class="card-desc">Established in 2017 under the leadership of CEO &amp; Founder Marcknol Mwanza, alongside original co-founders Bramuel Juma and John Mbembe, The Threez Media is a Nairobi-based digital media label dedicated to digital comedy, creative storytelling, spoken word, and social media satire.</div>
+            </div>
+            <a href="#about" class="card-action">Learn More →</a>
+          </div>
+
         </div>
+      </section>
+    </div>
+  </main>
 
-        <!-- Comedy Skit Card -->
-        <div class="showcase-card" data-category="comedy">
-          <span class="card-tag">Comedy Skits</span>
-          <h3>Street Chronicles</h3>
-          <p>Hilarious everyday Nairobi encounters and observational street comedy.</p>
-          <a href="#" class="card-link">Watch Skit &rarr;</a>
-        </div>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 The Threez Media. All rights reserved.</p>
+    </div>
+  </footer>
 
-        <!-- Spoken Word Card -->
-        <div class="showcase-card" data-category="spoken-word">
-          <span class="card-tag">Spoken Word</span>
-          <h3>Voice of the City</h3>
-          <p>Rhythmic spoken word poetry reflecting real life, ambition, and community stories.</p>
-          <a href="#" class="card-link">Listen Now &rarr;</a>
-        </div>
-
-        <!-- Label History Card -->
-        <div class="showcase-card" data-category="history">
-          <span class="card-tag">Label History & Background</span>
-          <h3>Our Journey Since 2017</h3>
-          <p>
-            Established in 2017 by original co-founders <strong>Bramuel Juma</strong>, <strong>John Mbembe</strong>, and <strong>Marcknol Mwanza</strong>, 
-            The Threez Media is a Nairobi-based digital media label dedicated to digital comedy, creative storytelling, spoken word, and social media satire.
-          </p>
-          <a href="#" class="card-link">Learn More &rarr;</a>
-        </div>
-
-      </div>
-
-      <h2 class="section-title" id="buzz">Drop the Buzz (Latest News)</h2>
-      <div class="news-card">
-        <span class="news-date">Today</span>
-        <h4>New skit set shoot completed! Releasing on YouTube this Friday.</h4>
-      </div>
-    </main>
-  </div>
-
-  <!-- Floating Actions -->
-  <div class="floating-btns">
-    <a href="https://wa.me/" class="float-btn btn-whatsapp" target="_blank">💬 Direct WhatsApp</a>
-    <a href="#" class="float-btn btn-fanchat">🔥 Join Fan Chat</a>
-  </div>
-
-  <div class="watermark-glow">THE THREEZ MEDIA</div>
-
-  <!-- JavaScript: Filter & Fireworks Engine -->
-  <script>
-    // Filter Functionality
-    function filterCategory(category, btnElement) {
-      const cards = document.querySelectorAll('.showcase-card');
-      const buttons = document.querySelectorAll('.filter-btn');
-
-      if (btnElement) {
-        buttons.forEach(btn => btn.classList.remove('active'));
-        btnElement.classList.add('active');
-      }
-
-      cards.forEach(card => {
-        if (category === 'all' || card.getAttribute('data-category') === category) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-
-    // Fireworks Canvas Animation Engine
-    const canvas = document.getElementById('fireworksCanvas');
-    const ctx = canvas.getContext('2d');
-
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
-
-    class Particle {
-      constructor(x, y, color) {
-        this.x = x;
-        this.y = y;
-        this.color = color;
-        this.radius = Math.random() * 2.5 + 1;
-        this.velocity = {
-          x: (Math.random() - 0.5) * 6,
-          y: (Math.random() - 0.5) * 6
-        };
-        this.alpha = 1;
-        this.decay = Math.random() * 0.015 + 0.008;
-      }
-
-      draw() {
-        ctx.save();
-        ctx.globalAlpha = this.alpha;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+</body>
+</html>
+ 0, Math.PI * 2);
         ctx.fillStyle = this.color;
         ctx.shadowBlur = 10;
         ctx.shadowColor = this.color;
@@ -477,8 +239,7 @@ lture entertainment.</p>
                     <div class="card-desc">A satirical take on mobile trends, online culture, and social media dynamics.</div>
                 </div>
                 <a href="https://youtube.com" target="_blank" class="card-action">Watch Video →</a>
-    <div class="media-card" data-category="history">
-    
+                                        if (category ===<div class="media-card" data-category="history" style="opacity: 1 !important; transform: none !important; animation: none !important;">
               <div>
                 <div class="card-tag">Label History &amp; Background</div>
                 <div class="card-title">Our Journey Since 2017</div>
@@ -499,10 +260,7 @@ lture entertainment.</p>
               </div>
               <a href="#about" class="card-action">Learn More →</a>
             </div>
-desc">Established in 2017 under the leadership of CEO &amp; Founder Marcknol Mwanza, alongside original co-founders Bramuel Juma and John Mbembe, The Threez Media is a Nairobi-based digital media label dedicated to digital comedy, creative storytelling, spoken word, and social media satire.</div>
-            </div>
-desc">Established in 2017 under the leadership of CEO &amp; Founder Marcknol Mwanza, alongside original co-founders Bramuel Juma and John Mbembe, The Threez Media is a Nairobi-based digital media label dedicated to digital comedy, creative storytelling, spoken word, and social media satire.</div>
-                </div>
+
                 <a href="#about" class="card-action">Learn More →</a>
                         </div>
               
@@ -549,7 +307,7 @@ desc">Established in 2017 under the leadership of CEO &amp; Founder Marcknol Mwa
 
             const cards = document.querySelectorAll('.media-card');
             cards.forEach(card => {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
+ 'all' || card.getAttribute('data-category') === category) {
                     card.style.display = 'flex';
                 } else {
                     card.style.display = 'none';
