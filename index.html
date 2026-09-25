@@ -24,8 +24,8 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background-color: var(--bg-dark);
       color: var(--text-primary);
-      line-height: 1.5;
-      padding-bottom: 80px;
+      line-height: 1.6;
+      padding-bottom: 90px;
     }
 
     .container {
@@ -34,7 +34,6 @@
       padding: 0 16px;
     }
 
-    /* WhatsApp Style Header */
     header {
       background-color: #202c33;
       padding: 16px 0;
@@ -56,7 +55,7 @@
       color: var(--accent-green);
     }
 
-    /* Interactive Category Filters */
+    /* Category Filter Navigation */
     .filter-bar {
       display: flex;
       gap: 8px;
@@ -84,18 +83,18 @@
       border-color: var(--accent-green);
     }
 
-    /* Media Grid Layout */
     .section-title {
       font-size: 1.5rem;
       margin-bottom: 16px;
       color: var(--text-primary);
     }
 
+    /* Media Grid Layout for Regular Content */
     .media-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 20px;
-      margin-bottom: 48px;
+      margin-bottom: 40px;
     }
 
     .media-card {
@@ -107,9 +106,6 @@
       flex-direction: column;
       justify-content: space-between;
       box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-      opacity: 1 !important;
-      transform: none !important;
-      animation: none !important;
     }
 
     .card-tag {
@@ -145,8 +141,60 @@
       margin-top: auto;
     }
 
-    .card-action:hover {
-      text-decoration: underline;
+    /* Full-Width Dedicated Story Section for Label History */
+    .story-section {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 48px;
+    }
+
+    .story-hero-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+
+    .story-img-container {
+      width: 100%;
+      background: #000;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .story-img-container img {
+      width: 100%;
+      height: 100%;
+      max-height: 380px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .img-caption {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      text-align: center;
+      margin-top: 6px;
+    }
+
+    .story-content {
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      line-height: 1.7;
+    }
+
+    .story-content p {
+      margin-bottom: 14px;
+    }
+
+    .story-highlight {
+      border-left: 3px solid var(--accent-green);
+      padding-left: 14px;
+      color: var(--text-secondary);
+      margin: 16px 0;
+      font-style: italic;
     }
 
     /* Floating WhatsApp Action Button */
@@ -195,19 +243,19 @@
   <main>
     <div class="container">
       
-      <!-- Section Title & Interactive Category Filter Bar -->
-      <h2 class="section-title" style="margin-top: 24px;">Media Showcase</h2>
+      <!-- Section Navigation Buttons -->
+      <h2 class="section-title" style="margin-top: 24px;">Explore The Platform</h2>
       <div class="filter-bar">
-        <button class="filter-btn active" onclick="filterCategory('all', event)">All Drops</button>
-        <button class="filter-btn" onclick="filterCategory('comedy', event)">Comedy Skits</button>
-        <button class="filter-btn" onclick="filterCategory('spoken', event)">Spoken Word</button>
-        <button class="filter-btn" onclick="filterCategory('satire', event)">Social Satire</button>
-        <button class="filter-btn" onclick="filterCategory('history', event)">Label History</button>
+        <button class="filter-btn active" onclick="switchTab('all', event)">All Drops</button>
+        <button class="filter-btn" onclick="switchTab('comedy', event)">Comedy Skits</button>
+        <button class="filter-btn" onclick="switchTab('spoken', event)">Spoken Word</button>
+        <button class="filter-btn" onclick="switchTab('satire', event)">Social Satire</button>
+        <button class="filter-btn" onclick="switchTab('history', event)">Label History</button>
       </div>
 
-      <div class="media-grid">
+      <!-- Regular Content Grid (Showcase Drops) -->
+      <div id="mediaGrid" class="media-grid">
 
-        <!-- Street Smart Hustle Card -->
         <div class="media-card" data-category="comedy">
           <div>
             <div class="card-tag">COMEDY SKIT</div>
@@ -217,34 +265,66 @@
           <a href="https://youtube.com" target="_blank" class="card-action">Watch Video →</a>
         </div>
 
-        <!-- Label History & Background Card -->
-        <div class="media-card" data-category="history" style="opacity: 1 !important; transform: none !important; animation: none !important;">
+        <div class="media-card" data-category="spoken">
           <div>
-            <div class="card-tag">LABEL HISTORY &amp; BACKGROUND</div>
-            <div class="card-title">Our Journey Since 2017</div>
-
-            <!-- Solo Founder Portrait -->
-            <div style="width: 100%; min-height: 250px; background: #000; border-radius: 8px; overflow: hidden; margin-bottom: 6px;">
-              <img src="file_00000000f25071f4a9d8dd3466526415.png" alt="Marcknol Mwanza - CEO &amp; Founder" style="width: 100%; height: auto; display: block; border-radius: 8px; object-fit: cover;" onerror="this.onerror=null; this.src='file_00000000f25071f4a9d8dd3466526415.jpg';">
-            </div>
-            <div style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 16px; text-align: center;">Marcknol Mwanza — CEO &amp; Founder</div>
-
-            <!-- 2017 Founders Photo -->
-            <div style="width: 100%; min-height: 200px; background: #000; border-radius: 8px; overflow: hidden; margin-bottom: 6px;">
-              <img src="1703500908270.jpg" alt="Threez Media Founders 2017" style="width: 100%; height: auto; display: block; border-radius: 8px; object-fit: cover;">
-            </div>
-            <div style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 12px; text-align: center;">Left to Right: CEO Marcknol Mwanza, John Mbembe, &amp; Bramuel Juma (Mumias Studios, 2017)</div>
-
-            <div class="card-desc">Established in 2017 under the leadership of CEO &amp; Founder Marcknol Mwanza, alongside original co-founders Bramuel Juma and John Mbembe, The Threez Media is a Nairobi-based digital media label dedicated to digital comedy, creative storytelling, spoken word, and social media satire.</div>
+            <div class="card-tag">SPOKEN WORD</div>
+            <div class="card-title">Voices of Nairobi</div>
+            <div class="card-desc">Poetic expressions highlighting street culture, personal growth, and everyday life experiences.</div>
           </div>
-          <a href="#about" class="card-action">Learn More →</a>
+          <a href="https://youtube.com" target="_blank" class="card-action">Listen Now →</a>
+        </div>
+
+        <div class="media-card" data-category="satire">
+          <div>
+            <div class="card-tag">SOCIAL SATIRE</div>
+            <div class="card-title">The Daily Grind</div>
+            <div class="card-desc">Witty social commentary on local experiences, hustle culture, and everyday relationships.</div>
+          </div>
+          <a href="https://youtube.com" target="_blank" class="card-action">Watch Series →</a>
         </div>
 
       </div>
+
+      <!-- Dedicated Full Story Section for Label History -->
+      <section id="labelHistorySection" class="story-section">
+        <div class="card-tag">LABEL HISTORY &amp; BACKGROUND</div>
+        <h2 class="section-title" style="margin-bottom: 8px;">The Journey of The Threez Media</h2>
+        
+        <!-- Founder Image Gallery Grid -->
+        <div class="story-hero-grid">
+          <div>
+            <div class="story-img-container">
+              <img src="file_00000000f25071f4a9d8dd3466526415.png" alt="Marcknol Mwanza - CEO &amp; Founder" onerror="this.onerror=null; this.src='file_00000000f25071f4a9d8dd3466526415.jpg';">
+            </div>
+            <div class="img-caption">Marcknol Mwanza — CEO &amp; Founder</div>
+          </div>
+
+          <div>
+            <div class="story-img-container">
+              <img src="1703500908270.jpg" alt="Threez Media Founders 2017">
+            </div>
+            <div class="img-caption">Original Founders (2017): CEO Marcknol Mwanza, John Mbembe, &amp; Bramuel Juma</div>
+          </div>
+        </div>
+
+        <!-- Narrative Story Text -->
+        <div class="story-content">
+          <p>The story of <strong>The Threez Media</strong> began back in <strong>2017</strong> during our days at <strong>St Romano's Matawa Secondary School</strong>. What started as simple classroom banter, comedy writing, and creative scripts between three close friends eventually laid the foundation for an independent creative label.</p>
+          
+          <div class="story-highlight">
+            "From writing skits during high school breaks at St Romano's Matawa to producing full digital media productions in Nairobi, our passion for storytelling has remained unchanged."
+          </div>
+
+          <p>Founded by <strong>Marcknol Mwanza</strong> alongside co-founders <strong>Bramuel Juma</strong> and <strong>John Mbembe</strong>, the group set out to create comedic skits, spoken word performances, and social satire tailored for digital audiences across Kenya.</p>
+
+          <p>Today, based out of Nairobi, The Threez Media continues to expand its reach—producing digital content, social media satire, and creative scripts while remaining true to the roots where it all started.</p>
+        </div>
+      </section>
+
     </div>
   </main>
 
-  <!-- Floating WhatsApp Contact Button linked to +254 706 434 282 -->
+  <!-- Floating WhatsApp Contact Button -->
   <a href="https://wa.me/254706434282?text=Hello%20The%20Threez%20Media%2C%20I'm%20reaching%20out%20from%20your%20website!" target="_blank" class="whatsapp-btn">
     💬 WhatsApp Us
   </a>
@@ -256,20 +336,36 @@
   </footer>
 
   <script>
-    function filterCategory(category, evt) {
+    function switchTab(category, evt) {
       const cards = document.querySelectorAll('.media-card');
       const buttons = document.querySelectorAll('.filter-btn');
+      const historySection = document.getElementById('labelHistorySection');
+      const mediaGrid = document.getElementById('mediaGrid');
 
       buttons.forEach(btn => btn.classList.remove('active'));
       if(evt && evt.target) evt.target.classList.add('active');
 
-      cards.forEach(card => {
-        if (category === 'all' || card.getAttribute('data-category') === category) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+      if (category === 'history') {
+        // Hide standard media cards grid and display full story section exclusively
+        mediaGrid.style.display = 'none';
+        historySection.style.display = 'block';
+      } else if (category === 'all') {
+        // Show all content cards and story section
+        mediaGrid.style.display = 'grid';
+        cards.forEach(card => card.style.display = 'flex');
+        historySection.style.display = 'block';
+      } else {
+        // Filter media cards and hide story section for specific drops
+        mediaGrid.style.display = 'grid';
+        historySection.style.display = 'none';
+        cards.forEach(card => {
+          if (card.getAttribute('data-category') === category) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
     }
   </script>
 </body>
