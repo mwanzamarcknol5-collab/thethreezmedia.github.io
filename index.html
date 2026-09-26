@@ -34,6 +34,7 @@
       padding: 0 16px;
     }
 
+    /* Header Navigation */
     header {
       background-color: #202c33;
       padding: 16px 0;
@@ -47,6 +48,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
     .brand-title {
@@ -55,7 +58,26 @@
       color: var(--accent-green);
     }
 
-    /* Category Filter Navigation */
+    .social-nav {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .social-link:hover {
+      color: var(--accent-green);
+    }
+
+    /* Interactive Filter Buttons */
     .filter-bar {
       display: flex;
       gap: 8px;
@@ -89,7 +111,7 @@
       color: var(--text-primary);
     }
 
-    /* Media Grid Layout for Regular Content */
+    /* Content Media Grid */
     .media-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -141,7 +163,7 @@
       margin-top: auto;
     }
 
-    /* Full-Width Dedicated Story Section for Label History */
+    /* Dedicated Full Story Section for Label History */
     .story-section {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
@@ -197,7 +219,7 @@
       font-style: italic;
     }
 
-    /* Floating WhatsApp Action Button */
+    /* Floating WhatsApp Button */
     .whatsapp-btn {
       position: fixed;
       bottom: 24px;
@@ -230,6 +252,24 @@
       font-size: 0.85rem;
       color: var(--text-secondary);
     }
+
+    .footer-socials {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .visitor-badge {
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
   </style>
 </head>
 <body>
@@ -237,13 +277,21 @@
   <header>
     <div class="container header-content">
       <div class="brand-title">The Threez Media</div>
+      
+      <!-- Header Social Navigation -->
+      <nav class="social-nav">
+        <a href="https://facebook.com" target="_blank" class="social-link">Facebook</a>
+        <a href="https://instagram.com" target="_blank" class="social-link">Instagram</a>
+        <a href="https://tiktok.com" target="_blank" class="social-link">TikTok</a>
+        <a href="https://youtube.com" target="_blank" class="social-link">YouTube</a>
+      </nav>
     </div>
   </header>
 
   <main>
     <div class="container">
       
-      <!-- Section Navigation Buttons -->
+      <!-- Navigation Filters -->
       <h2 class="section-title" style="margin-top: 24px;">Explore The Platform</h2>
       <div class="filter-bar">
         <button class="filter-btn active" onclick="switchTab('all', event)">All Drops</button>
@@ -253,7 +301,7 @@
         <button class="filter-btn" onclick="switchTab('history', event)">Label History</button>
       </div>
 
-      <!-- Regular Content Grid (Showcase Drops) -->
+      <!-- Media Content Grid -->
       <div id="mediaGrid" class="media-grid">
 
         <div class="media-card" data-category="comedy">
@@ -290,7 +338,7 @@
         <div class="card-tag">LABEL HISTORY &amp; BACKGROUND</div>
         <h2 class="section-title" style="margin-bottom: 8px;">The Journey of The Threez Media</h2>
         
-        <!-- Founder Image Gallery Grid -->
+        <!-- Side-by-Side Founder Image Gallery -->
         <div class="story-hero-grid">
           <div>
             <div class="story-img-container">
@@ -307,7 +355,7 @@
           </div>
         </div>
 
-        <!-- Narrative Story Text -->
+        <!-- High School to Nairobi Story -->
         <div class="story-content">
           <p>The story of <strong>The Threez Media</strong> began back in <strong>2017</strong> during our days at <strong>St Romano's Matawa Secondary School</strong>. What started as simple classroom banter, comedy writing, and creative scripts between three close friends eventually laid the foundation for an independent creative label.</p>
           
@@ -324,13 +372,62 @@
     </div>
   </main>
 
-  <!-- Floating WhatsApp Contact Button -->
+  <!-- Floating WhatsApp Contact Button linked to +254 706 434 282 -->
   <a href="https://wa.me/254706434282?text=Hello%20The%20Threez%20Media%2C%20I'm%20reaching%20out%20from%20your%20website!" target="_blank" class="whatsapp-btn">
     💬 WhatsApp Us
   </a>
 
   <footer>
     <div class="container">
+      <div class="footer-socials">
+        <a href="https://facebook.com" target="_blank" class="social-link">Facebook</a>
+        <a href="https://instagram.com" target="_blank" class="social-link">Instagram</a>
+        <a href="https://tiktok.com" target="_blank" class="social-link">TikTok</a>
+        <a href="https://youtube.com" target="_blank" class="social-link">YouTube</a>
+      </div>
+      <p>&copy; 2026 The Threez Media. All rights reserved.</p>
+
+      <!-- Live Visitor Counter Badge -->
+      <div class="visitor-badge">
+        <span>👁️ Total Site Views:</span>
+        <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2F3marcknol5-collab.github.io&count_bg=%2300A884&title_bg=%23202C33&icon=&icon_color=%23E9EDEF&title=Views&edge_flat=false" alt="Visitor Counter" style="vertical-align: middle;"/>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function switchTab(category, evt) {
+      const cards = document.querySelectorAll('.media-card');
+      const buttons = document.querySelectorAll('.filter-btn');
+      const historySection = document.getElementById('labelHistorySection');
+      const mediaGrid = document.getElementById('mediaGrid');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      if(evt && evt.target) evt.target.classList.add('active');
+
+      if (category === 'history') {
+        mediaGrid.style.display = 'none';
+        historySection.style.display = 'block';
+      } else if (category === 'all') {
+        mediaGrid.style.display = 'grid';
+        cards.forEach(card => card.style.display = 'flex');
+        historySection.style.display = 'block';
+      } else {
+        mediaGrid.style.display = 'grid';
+        historySection.style.display = 'none';
+        cards.forEach(card => {
+          if (card.getAttribute('data-category') === category) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+    }
+  </script>
+</body>
+</html>
+ner">
       <p>&copy; 2026 The Threez Media. All rights reserved.</p>
     </div>
   </footer>
