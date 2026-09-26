@@ -4,6 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Threez Media — Official Platform</title>
+
+  <!-- Google tag (gtag.js) - Private Analytics Tracking -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7CGSWC2CKS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-7CGSWC2CKS');
+  </script>
+
   <style>
     :root {
       --bg-dark: #0b141a;
@@ -260,16 +271,6 @@
       margin-bottom: 12px;
       flex-wrap: wrap;
     }
-
-    .visitor-badge {
-      margin-top: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-    }
   </style>
 </head>
 <body>
@@ -358,6 +359,70 @@
         <!-- High School to Nairobi Story -->
         <div class="story-content">
           <p>The story of <strong>The Threez Media</strong> began back in <strong>2017</strong> during our days at <strong>St Romano's Matawa Secondary School</strong>. What started as simple classroom banter, comedy writing, and creative scripts between three close friends eventually laid the foundation for an independent creative label.</p>
+          
+          <div class="story-highlight">
+            "From writing skits during high school breaks at St Romano's Matawa to producing full digital media productions in Nairobi, our passion for storytelling has remained unchanged."
+          </div>
+
+          <p>Founded by <strong>Marcknol Mwanza</strong> alongside co-founders <strong>Bramuel Juma</strong> and <strong>John Mbembe</strong>, the group set out to create comedic skits, spoken word performances, and social satire tailored for digital audiences across Kenya.</p>
+
+          <p>Today, based out of Nairobi, The Threez Media continues to expand its reach—producing digital content, social media satire, and creative scripts while remaining true to the roots where it all started.</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Floating WhatsApp Contact Button linked to +254 706 434 282 -->
+  <a href="https://wa.me/254706434282?text=Hello%20The%20Threez%20Media%2C%20I'm%20reaching%20out%20from%20your%20website!" target="_blank" class="whatsapp-btn">
+    💬 WhatsApp Us
+  </a>
+
+  <footer>
+    <div class="container">
+      <div class="footer-socials">
+        <a href="https://facebook.com" target="_blank" class="social-link">Facebook</a>
+        <a href="https://instagram.com" target="_blank" class="social-link">Instagram</a>
+        <a href="https://tiktok.com" target="_blank" class="social-link">TikTok</a>
+        <a href="https://youtube.com" target="_blank" class="social-link">YouTube</a>
+      </div>
+      <p>&copy; 2026 The Threez Media. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function switchTab(category, evt) {
+      const cards = document.querySelectorAll('.media-card');
+      const buttons = document.querySelectorAll('.filter-btn');
+      const historySection = document.getElementById('labelHistorySection');
+      const mediaGrid = document.getElementById('mediaGrid');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      if(evt && evt.target) evt.target.classList.add('active');
+
+      if (category === 'history') {
+        mediaGrid.style.display = 'none';
+        historySection.style.display = 'block';
+      } else if (category === 'all') {
+        mediaGrid.style.display = 'grid';
+        cards.forEach(card => card.style.display = 'flex');
+        historySection.style.display = 'block';
+      } else {
+        mediaGrid.style.display = 'grid';
+        historySection.style.display = 'none';
+        cards.forEach(card => {
+          if (card.getAttribute('data-category') === category) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+    }
+  </script>
+</body>
+</html>
+etween three close friends eventually laid the foundation for an independent creative label.</p>
           
           <div class="story-highlight">
             "From writing skits during high school breaks at St Romano's Matawa to producing full digital media productions in Nairobi, our passion for storytelling has remained unchanged."
