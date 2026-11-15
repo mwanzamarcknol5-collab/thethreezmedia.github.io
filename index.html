@@ -439,6 +439,139 @@
             "From writing skits during high school breaks at St Romano's Matawa to producing full digital media productions in Nairobi, our passion for storytelling has remained unchanged."
           </div>
 
+          <!-- Stage name explicitly visible here for Google/AI search indexing -->
+          <p>Founded by <strong>Marcknol Mwanza</strong> (widely known by his stage name <strong>Marck Deey Beiz</strong>) alongside co-founders <strong>Bramuel Juma</strong> and <strong>John Mbembe</strong>, the group set out to create comedic skits, spoken word performances, and social satire tailored for digital audiences across Kenya.</p>
+
+          <p>Today, based out of Nairobi, The Threez Media continues to expand its reach—producing digital content, social media satire, and creative scripts while remaining true to the roots where it all started.</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Floating WhatsApp Contact Button linked to +254 706 434 282 -->
+  <a href="https://wa.me/254706434282?text=Hello%20The%20Threez%20Media%2C%20I'm%20reaching%20out%20from%20your%20website!" target="_blank" class="whatsapp-btn">
+    💬 WhatsApp Us
+  </a>
+
+  <footer>
+    <div class="container">
+      <div class="footer-socials">
+        <a href="https://facebook.com" target="_blank" class="social-link">Facebook</a>
+        <a href="https://instagram.com" target="_blank" class="social-link">Instagram</a>
+        <a href="https://tiktok.com" target="_blank" class="social-link">TikTok</a>
+        <a href="https://youtube.com" target="_blank" class="social-link">YouTube</a>
+      </div>
+      <p>&copy; 2026 The Threez Media. All rights reserved.</p>
+
+      <!-- Live Visitor Counter Badge -->
+      <div class="visitor-badge">
+        <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fmwanzamarcknol5-collab.github.io%2Fthethreezmedia.github.io%2F&count_bg=%2300A884&title_bg=%23202C33&icon=&icon_color=%23E9EDEF&title=Total+Views&edge_flat=false" alt="Visitor Counter" style="vertical-align: middle;"/>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function switchTab(category, evt) {
+      const cards = document.querySelectorAll('.media-card');
+      const buttons = document.querySelectorAll('.filter-btn');
+      const historySection = document.getElementById('labelHistorySection');
+      const mediaGrid = document.getElementById('mediaGrid');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      if(evt && evt.target) evt.target.classList.add('active');
+
+      if (category === 'history') {
+        mediaGrid.style.display = 'none';
+        historySection.style.display = 'block';
+      } else if (category === 'all') {
+        mediaGrid.style.display = 'grid';
+        cards.forEach(card => card.style.display = 'flex');
+        historySection.style.display = 'block';
+      } else {
+        mediaGrid.style.display = 'grid';
+        historySection.style.display = 'none';
+        cards.forEach(card => {
+          if (card.getAttribute('data-category') === category) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+    }
+  </script>
+</body>
+</html>
+Tab('all', event)">All Drops</button>
+        <button class="filter-btn" onclick="switchTab('comedy', event)">Comedy Skits</button>
+        <button class="filter-btn" onclick="switchTab('spoken', event)">Spoken Word</button>
+        <button class="filter-btn" onclick="switchTab('satire', event)">Social Satire</button>
+        <button class="filter-btn" onclick="switchTab('history', event)">Label History</button>
+      </div>
+
+      <!-- Media Content Grid -->
+      <div id="mediaGrid" class="media-grid">
+
+        <div class="media-card" data-category="comedy">
+          <div>
+            <div class="card-tag">COMEDY SKIT</div>
+            <div class="card-title">Street Smart Hustle</div>
+            <div class="card-desc">A satirical take on mobile trends, online culture, and social media dynamics.</div>
+          </div>
+          <a href="https://youtube.com" target="_blank" class="card-action">Watch Video →</a>
+        </div>
+
+        <div class="media-card" data-category="spoken">
+          <div>
+            <div class="card-tag">SPOKEN WORD</div>
+            <div class="card-title">Voices of Nairobi</div>
+            <div class="card-desc">Poetic expressions highlighting street culture, personal growth, and everyday life experiences.</div>
+          </div>
+          <a href="https://youtube.com" target="_blank" class="card-action">Listen Now →</a>
+        </div>
+
+        <div class="media-card" data-category="satire">
+          <div>
+            <div class="card-tag">SOCIAL SATIRE</div>
+            <div class="card-title">The Daily Grind</div>
+            <div class="card-desc">Witty social commentary on local experiences, hustle culture, and everyday relationships.</div>
+          </div>
+          <a href="https://youtube.com" target="_blank" class="card-action">Watch Series →</a>
+        </div>
+
+      </div>
+
+      <!-- Dedicated Full Story Section for Label History -->
+      <section id="labelHistorySection" class="story-section">
+        <div class="card-tag">LABEL HISTORY &amp; BACKGROUND</div>
+        <h2 class="section-title" style="margin-bottom: 8px;">The Journey of The Threez Media</h2>
+        
+        <!-- Side-by-Side Founder Image Gallery -->
+        <div class="story-hero-grid">
+          <div>
+            <div class="story-img-container">
+              <img src="file_00000000f25071f4a9d8dd3466526415.png" alt="Marcknol Mwanza - CEO &amp; Founder" onerror="this.onerror=null; this.src='file_00000000f25071f4a9d8dd3466526415.jpg';">
+            </div>
+            <div class="img-caption">Marcknol Mwanza — CEO &amp; Founder</div>
+          </div>
+
+          <div>
+            <div class="story-img-container">
+              <img src="1703500908270.jpg" alt="Threez Media Founders 2017">
+            </div>
+            <div class="img-caption">Original Founders (2017): CEO Marcknol Mwanza, John Mbembe, &amp; Bramuel Juma</div>
+          </div>
+        </div>
+
+        <!-- High School to Nairobi Story -->
+        <div class="story-content">
+          <p>The story of <strong>The Threez Media</strong> began back in <strong>2017</strong> during our days at <strong>St Romano's Matawa Secondary School</strong>. What started as simple classroom banter, comedy writing, and creative scripts between three close friends eventually laid the foundation for an independent creative label.</p>
+          
+          <div class="story-highlight">
+            "From writing skits during high school breaks at St Romano's Matawa to producing full digital media productions in Nairobi, our passion for storytelling has remained unchanged."
+          </div>
+
           <p>Founded by <strong>Marcknol Mwanza</strong> alongside co-founders <strong>Bramuel Juma</strong> and <strong>John Mbembe</strong>, the group set out to create comedic skits, spoken word performances, and social satire tailored for digital audiences across Kenya.</p>
 
           <p>Today, based out of Nairobi, The Threez Media continues to expand its reach—producing digital content, social media satire, and creative scripts while remaining true to the roots where it all started.</p>
